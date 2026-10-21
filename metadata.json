@@ -1,0 +1,6 @@
+{
+  "name": "DevFlow Workspace",
+  "description": "High-velocity issue tracking and agile workspace for engineering teams.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevFlow - Sign In</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#006c49",
+            "primary": "#4648d4",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-surface": "#131b2e",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-tertiary-container": "#000703",
+            "on-secondary-container": "#fffbff",
+            "surface-container": "#eaedff",
+            "secondary-fixed": "#e9ddff",
+            "surface-bright": "#faf8ff",
+            "inverse-on-surface": "#eef0ff",
+            "primary-fixed": "#e1e0ff",
+            "surface-dim": "#d2d9f4",
+            "surface-container-low": "#f2f3ff",
+            "secondary": "#6b38d4",
+            "background": "#faf8ff",
+            "inverse-surface": "#283044",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "secondary-container": "#8455ef",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-container-highest": "#dae2fd",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-container": "#fffbff",
+            "on-primary-fixed": "#07006c",
+            "on-secondary-fixed": "#23005c",
+            "error-container": "#ffdad6",
+            "tertiary-fixed": "#6ffbbe",
+            "primary-container": "#6063ee",
+            "on-background": "#131b2e",
+            "primary-fixed-dim": "#c0c1ff",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#c7c4d7",
+            "surface-container-high": "#e2e7ff",
+            "surface-tint": "#494bd6",
+            "error": "#ba1a1a",
+            "surface": "#faf8ff",
+            "on-tertiary-fixed": "#002113",
+            "outline": "#767586",
+            "tertiary-container": "#00885d",
+            "on-surface-variant": "#464554",
+            "on-secondary-fixed-variant": "#5516be",
+            "inverse-primary": "#c0c1ff",
+            "surface-variant": "#dae2fd"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "sans": ["Inter", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased h-full font-sans selection:bg-primary selection:text-white">
+<div class="min-h-screen w-full flex flex-col lg:flex-row">
+<!-- LEFT COLUMN: Brand Showcase & Interactive Visuals (Linear / Vercel style) -->
+<div class="relative hidden lg:flex lg:w-1/2 xl:w-7/12 flex-col justify-between overflow-hidden bg-[#0b0f19] p-12 xl:p-16 text-white border-r border-[#1c2333]">
+<!-- Ambient Radial Gradient Glows -->
+<div class="pointer-events-none absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-primary/20 blur-[130px]"></div>
+<div class="pointer-events-none absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-secondary/15 blur-[120px]"></div>
+<div class="pointer-events-none absolute inset-0 bg-[radial-gradient(#20283e_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+<!-- Top: Logo & System Indicator -->
+<div class="relative z-10 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-9 rounded-lg overflow-hidden bg-[#131b2e] border border-[#2b354f] flex items-center justify-center p-1 shadow-inner">
+<img alt="DevFlow Logo" class="size-full object-contain" src="{{DATA:IMAGE:IMAGE_2}}"/>
+</div>
+<span class="text-xl font-bold tracking-tight text-white flex items-center gap-1.5">
+          DevFlow
+          <span class="text-xs px-2 py-0.5 rounded-full font-mono bg-primary/20 text-primary-fixed border border-primary/40 font-medium">STUDIO</span>
+</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#131b2e]/80 border border-[#232d44] text-xs font-mono text-outline-variant">
+<span class="size-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+        Systems Operational
+      </div>
+</div>
+<!-- Center: Copy & Floating Glassmorphic Kanban Graphic -->
+<div class="relative z-10 my-auto py-10 flex flex-col max-w-xl">
+<div class="inline-flex items-center gap-2 mb-4 text-xs font-semibold tracking-wider uppercase text-primary-fixed-dim">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+        Velocity Engineered
+      </div>
+<h1 class="text-4xl xl:text-5xl font-black tracking-tight leading-[1.15] text-white">
+        Great work starts with a clear plan.
+      </h1>
+<p class="mt-4 text-base xl:text-lg text-[#94a3b8] leading-relaxed">
+        Bring your projects, people, and priorities together in one focused workspace. Built for high-velocity software engineering teams.
+      </p>
+<!-- Miniature Kanban Cards Mockup -->
+<div class="relative mt-10 space-y-3.5">
+<!-- Floating Card 1: In Progress -->
+<div class="relative transform transition-all duration-300 hover:-translate-y-1 rounded-xl bg-[#131b2e]/80 backdrop-blur-md border border-[#273350] p-4 shadow-2xl">
+<div class="flex items-center justify-between text-xs mb-2.5">
+<div class="flex items-center gap-2">
+<span class="font-mono text-primary-fixed-dim font-semibold">DEV-109</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 text-[11px] font-medium">
+<span class="size-1.5 rounded-full bg-amber-400"></span>
+                In Progress
+              </span>
+</div>
+<span class="inline-flex items-center gap-1 text-[11px] font-mono font-medium text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/20">
+<span class="material-symbols-outlined text-[13px]">priority_high</span>
+              Urgent
+            </span>
+</div>
+<p class="text-sm font-medium text-white mb-3">Real-time sync engine &amp; CRDT conflict resolution</p>
+<div class="flex items-center justify-between pt-2 border-t border-[#1e293b] text-xs text-[#94a3b8]">
+<div class="flex items-center gap-1 font-mono text-[11px]">
+<span class="material-symbols-outlined text-[14px]">commit</span>
+              feat/crdt-sync
+            </div>
+<!-- Avatar Stack -->
+<div class="flex -space-x-1.5 overflow-hidden">
+<div class="inline-block size-6 rounded-full ring-2 ring-[#131b2e] bg-primary flex items-center justify-center text-[10px] font-bold text-white">AK</div>
+<div class="inline-block size-6 rounded-full ring-2 ring-[#131b2e] bg-secondary flex items-center justify-center text-[10px] font-bold text-white">SL</div>
+<div class="inline-block size-6 rounded-full ring-2 ring-[#131b2e] bg-tertiary flex items-center justify-center text-[10px] font-bold text-white">MR</div>
+</div>
+</div>
+</div>
+<!-- Floating Card 2: Done -->
+<div class="relative transform transition-all duration-300 hover:-translate-y-1 rounded-xl bg-[#131b2e]/60 backdrop-blur-md border border-[#232d44] p-4 shadow-xl ml-6">
+<div class="flex items-center justify-between text-xs mb-2">
+<div class="flex items-center gap-2">
+<span class="font-mono text-outline-variant font-medium">DEV-114</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-[11px] font-medium">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+                Done
+              </span>
+</div>
+<span class="text-[11px] font-mono text-emerald-400 font-semibold">100% complete</span>
+</div>
+<p class="text-sm font-medium text-[#cbd5e1]">Git commit linking &amp; automated PR triggers</p>
+</div>
+<!-- Floating Feature Pills -->
+<div class="flex flex-wrap items-center gap-2 pt-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#151c2e] border border-[#273350] text-xs font-mono text-[#cbd5e1]">
+<span class="text-primary-fixed-dim">Ctrl+K</span>
+<span>Omni Search</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#151c2e] border border-[#273350] text-xs font-mono text-[#cbd5e1]">
+<span class="size-1.5 rounded-full bg-emerald-400"></span>
+<span>&lt;1ms Local Latency</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#151c2e] border border-[#273350] text-xs font-mono text-[#cbd5e1]">
+<span class="material-symbols-outlined text-[14px]">sync_alt</span>
+<span>Linear &amp; GitHub Sync</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom: Testimonial Quote -->
+<div class="relative z-10 border-t border-[#1c2333] pt-6 flex items-start gap-4">
+<div class="size-10 rounded-full bg-[#172033] border border-[#2d3a5a] flex items-center justify-center shrink-0 text-primary-fixed">
+<span class="material-symbols-outlined text-[20px]">format_quote</span>
+</div>
+<div>
+<p class="text-sm text-[#cbd5e1] italic leading-snug">
+          “DevFlow cut our cycle time in half while keeping the entire engineering org aligned.”
+        </p>
+<p class="text-xs text-[#94a3b8] mt-1.5 font-medium">
+          — VP of Engineering at <span class="text-white font-semibold">ScaleOps</span>
+</p>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Centered Sign-In Form -->
+<div class="flex-1 flex flex-col justify-between bg-surface p-6 sm:p-10 lg:p-12 xl:p-16 min-h-screen overflow-y-auto">
+<!-- Top Bar Navigation (Back & Version) -->
+<div class="flex items-center justify-between w-full max-w-md mx-auto">
+<a class="group inline-flex items-center gap-1.5 text-xs font-medium text-on-surface-variant hover:text-primary transition-colors" href="/">
+<span class="material-symbols-outlined text-[18px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+        Back to Home
+      </a>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">
+<span class="size-1.5 rounded-full bg-primary"></span>
+        DevFlow Cloud v2.4
+      </span>
+</div>
+<!-- Main Form Container -->
+<div class="w-full max-w-md mx-auto my-auto py-8">
+<!-- Mobile Brand Header -->
+<div class="lg:hidden flex items-center gap-2.5 mb-6">
+<div class="size-8 rounded bg-[#131b2e] flex items-center justify-center p-1">
+<img alt="DevFlow Logo" class="size-full object-contain" src="{{DATA:IMAGE:IMAGE_2}}"/>
+</div>
+<span class="text-lg font-bold text-on-surface">DevFlow</span>
+</div>
+<div class="mb-8">
+<h2 class="text-3xl font-black tracking-tight text-on-surface">Welcome back</h2>
+<p class="mt-2 text-sm text-on-surface-variant">Sign in to continue to your workspace.</p>
+</div>
+<!-- Quick Demo Access Banner -->
+<div class="mb-6 p-3.5 rounded-xl bg-surface-container-low border border-primary/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">tips_and_updates</span>
+<div class="text-xs">
+<div class="font-semibold text-on-surface flex items-center gap-1.5">
+            Demo Mode Active
+            <span class="px-1.5 py-0.2 rounded bg-primary/10 text-primary font-mono text-[10px]">Instant Login</span>
+</div>
+<p class="text-on-surface-variant mt-0.5">Click "Sign In" with pre-filled fields to immediately jump to your workspace board.</p>
+</div>
+</div>
+<!-- Google SSO Button -->
+<button class="w-full flex items-center justify-center gap-3 h-12 px-4 rounded-xl border border-outline-variant/60 bg-surface-container-lowest hover:bg-surface-container text-on-surface text-sm font-semibold shadow-sm transition duration-150 ease-in-out active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-primary/20" id="googleAuthBtn" type="button">
+<svg class="size-5" viewbox="0 0 24 24">
+<path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z" fill="#4285F4"></path>
+<path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.25 21.36 7.33 24 12 24z" fill="#34A853"></path>
+<path d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.97 0 12s.46 3.84 1.26 5.42l4.02-3.15z" fill="#FBBC05"></path>
+<path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.25 2.64 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z" fill="#EA4335"></path>
+</svg>
+<span>Continue with Google</span>
+</button>
+<!-- Divider -->
+<div class="relative my-6 flex items-center justify-center">
+<div class="w-full border-t border-outline-variant/40"></div>
+<span class="absolute bg-surface px-3 text-xs uppercase tracking-wider text-outline font-medium">or continue with email</span>
+</div>
+<!-- Sign In Form -->
+<form class="space-y-4" id="signInForm" novalidate="">
+<!-- Email Input -->
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1.5" for="emailInput">
+            Work Email
+          </label>
+<div class="relative">
+<input class="w-full h-12 pl-11 pr-4 rounded-xl border border-outline-variant/60 bg-surface-container-lowest text-on-surface text-sm placeholder:text-outline focus:border-primary focus:ring-4 focus:ring-primary/10 transition outline-none" id="emailInput" name="email" placeholder="alex@acme.corp" required="" type="email" value="alex@acme.corp"/>
+<div class="pointer-events-none absolute inset-y-0 left-0 pl-3.5 flex items-center text-outline">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+</div>
+<p class="hidden text-xs text-error mt-1.5 font-medium flex items-center gap-1" id="emailError">
+<span class="material-symbols-outlined text-[14px]">error</span> Please enter a valid work email address.
+          </p>
+</div>
+<!-- Password Input -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block text-xs font-semibold text-on-surface" for="passwordInput">
+              Password
+            </label>
+<a class="text-xs font-medium text-primary hover:underline" href="/forgot-password">
+              Forgot password?
+            </a>
+</div>
+<div class="relative">
+<input class="w-full h-12 pl-11 pr-11 rounded-xl border border-outline-variant/60 bg-surface-container-lowest text-on-surface text-sm placeholder:text-outline focus:border-primary focus:ring-4 focus:ring-primary/10 transition outline-none font-mono" id="passwordInput" name="password" placeholder="••••••••••••" required="" type="password" value="supersecretdevpassword"/>
+<div class="pointer-events-none absolute inset-y-0 left-0 pl-3.5 flex items-center text-outline">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-outline hover:text-on-surface transition" id="togglePasswordBtn" type="button">
+<span class="material-symbols-outlined text-[20px]" id="eyeIcon">visibility</span>
+</button>
+</div>
+<p class="hidden text-xs text-error mt-1.5 font-medium flex items-center gap-1" id="passwordError">
+<span class="material-symbols-outlined text-[14px]">error</span> Password must be at least 8 characters.
+          </p>
+</div>
+<!-- Checkbox Row -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="size-4 rounded border-outline-variant text-primary focus:ring-primary/20 accent-primary cursor-pointer" id="rememberMe" type="checkbox"/>
+<span class="text-xs text-on-surface-variant font-normal">Remember me for 30 days</span>
+</label>
+</div>
+<!-- Submit Button -->
+<button class="w-full h-12 mt-2 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-secondary text-white text-sm font-semibold shadow-md shadow-primary/25 hover:opacity-95 transition-all duration-150 active:scale-[0.99] focus:outline-none focus:ring-4 focus:ring-primary/20" id="submitBtn" type="submit">
+<span class="truncate" id="btnText">Sign In</span>
+<span class="material-symbols-outlined text-[18px]" id="btnIcon">arrow_forward</span>
+<div class="hidden size-5 border-2 border-white/30 border-t-white rounded-full animate-spin" id="btnSpinner"></div>
+</button>
+</form>
+<!-- Test Profiles Quick Filler -->
+<div class="mt-6 pt-5 border-t border-outline-variant/30 flex items-center justify-between text-xs text-on-surface-variant">
+<span class="font-medium text-[11px] uppercase tracking-wide">Test Profiles:</span>
+<div class="flex gap-2">
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface text-[11px] font-mono transition" onclick="fillProfile('alex@acme.corp')" type="button">alex@acme.corp</button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface text-[11px] font-mono transition" onclick="fillProfile('sarah@linear.dev')" type="button">sarah@linear.dev</button>
+</div>
+</div>
+</div>
+<!-- Footer Links -->
+<div class="w-full max-w-md mx-auto pt-6 text-center text-xs text-on-surface-variant">
+<p>
+        Don't have an account? 
+        <a class="font-semibold text-primary hover:underline ml-1" href="/signup">Sign up for DevFlow</a>
+</p>
+<div class="mt-4 flex items-center justify-center gap-4 text-[11px] text-outline">
+<a class="hover:underline hover:text-on-surface" href="#">Privacy Policy</a>
+<span>•</span>
+<a class="hover:underline hover:text-on-surface" href="#">Terms of Service</a>
+<span>•</span>
+<a class="hover:underline hover:text-on-surface" href="#">Security &amp; SOC2</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Vanilla JS Micro-Interactions -->
+<script>
+  // Show / Hide Password
+  const passwordInput = document.getElementById('passwordInput');
+  const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+  const eyeIcon = document.getElementById('eyeIcon');
+
+  togglePasswordBtn.addEventListener('click', () => {
+    const isPassword = passwordInput.getAttribute('type') === 'password';
+    passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+    eyeIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+  });
+
+  // Profile quick switch
+  window.fillProfile = function(email) {
+    const emailField = document.getElementById('emailInput');
+    emailField.value = email;
+    emailField.focus();
+  };
+
+  // Form Validation & Mock Sign-In Redirection to /board
+  const form = document.getElementById('signInForm');
+  const emailInput = document.getElementById('emailInput');
+  const emailError = document.getElementById('emailError');
+  const passwordError = document.getElementById('passwordError');
+  const submitBtn = document.getElementById('submitBtn');
+  const btnText = document.getElementById('btnText');
+  const btnIcon = document.getElementById('btnIcon');
+  const btnSpinner = document.getElementById('btnSpinner');
+  const googleBtn = document.getElementById('googleAuthBtn');
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function handleAuthSuccess() {
+    btnText.textContent = "Authenticating...";
+    btnIcon.classList.add('hidden');
+    btnSpinner.classList.remove('hidden');
+    submitBtn.disabled = true;
+
+    // Simulate instant SSO authentication handoff
+    setTimeout(() => {
+      window.location.href = '/board';
+    }, 850);
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let hasError = false;
+
+    // Email check
+    if (!validateEmail(emailInput.value.trim())) {
+      emailError.classList.remove('hidden');
+      emailInput.classList.add('border-error');
+      hasError = true;
+    } else {
+      emailError.classList.add('hidden');
+      emailInput.classList.remove('border-error');
+    }
+
+    // Password check
+    if (passwordInput.value.trim().length < 6) {
+      passwordError.classList.remove('hidden');
+      passwordInput.classList.add('border-error');
+      hasError = true;
+    } else {
+      passwordError.classList.add('hidden');
+      passwordInput.classList.remove('border-error');
+    }
+
+    if (!hasError) {
+      handleAuthSuccess();
+    }
+  });
+
+  // Google SSO simulated click
+  googleBtn.addEventListener('click', () => {
+    googleBtn.innerHTML = `
+      <div class="size-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+      <span>Connecting Google Workspace...</span>
+    `;
+    setTimeout(() => {
+      window.location.href = '/board';
+    }, 900);
+  });
+</script>
+</body></html>
